@@ -1,16 +1,18 @@
 package test.java.chap03;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 
 public class ExpiryDateCalculator {
     public LocalDate calculateExpiryDate(PayData payData) {
         int addedMonths = payData.getPayAmount() / 10_000;
         if (payData.getFirstBillingDate() != null) {
-            // 후보 만료일 구함
             LocalDate candidateExp = payData.getBillingDate().plusMonths(addedMonths);
-            // 첫 납부일의 일자와 후보 만료일의 일자가 다르면
             if (payData.getFirstBillingDate().getDayOfMonth() != candidateExp.getDayOfMonth()) {
-                // 첫 납부일의 일자를 후보 만료일의 일자로 사용
+                // 후보 만료일이 포함될 달의 마지막 첫날 < 첫 납부일 일자
+                if (YearMonth.from(candidateExp).lengthOfMonth() < payData.getFirstBillingDate().getDayOfMonth()) {
+                    return candidateExp.withDayOfMonth(YearMonth.from(candidateExp).lengthOfMonth());
+                }
                 return candidateExp.withDayOfMonth(payData.getFirstBillingDate().getDayOfMonth());
             }
         }
