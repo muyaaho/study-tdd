@@ -2,6 +2,8 @@ package test.java.chap02;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import main.java.chap02.PasswordStrength;
+import main.java.chap02.PasswordStrengthMeter;
 import org.junit.jupiter.api.Test;
 
 public class PasswordStrengthMeterTest {

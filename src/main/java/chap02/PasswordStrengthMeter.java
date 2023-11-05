@@ -1,4 +1,4 @@
-package test.java.chap02;
+package main.java.chap02;
 
 /* 테스트 할 때 단위기능 별로 하는데 처음에는 테스트가 통과되도록 만들고
  * 이제 여러 기능을 추가하다보면 한 메소드가 길어지는데 그 때 마다 private으로 나눠주면
