@@ -3,6 +3,8 @@ package test.java.chap03;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+import main.java.chap03.ExpiryDateCalculator;
+import main.java.chap03.PayData;
 import org.junit.jupiter.api.Test;
 
 public class ExpirtDateCalculatorTest {
